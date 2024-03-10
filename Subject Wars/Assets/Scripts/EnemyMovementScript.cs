@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitMovementScript : MonoBehaviour
+public class EnemyMovementScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,9 +14,9 @@ public class UnitMovementScript : MonoBehaviour
     void Update()
     {
         float speed = 5;
-        if(transform.position.x < 24)
+        if (transform.position.x > -8)
         {
-            transform.Translate(transform.right * speed * Time.deltaTime);
+            transform.Translate(transform.right * -speed * Time.deltaTime);
         }
     }
 
@@ -29,8 +29,7 @@ public class UnitMovementScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Trigger Colliders existing collision");
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
     }
-
 }
