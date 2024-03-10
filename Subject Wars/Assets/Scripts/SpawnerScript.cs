@@ -13,7 +13,7 @@ public class SpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(addition, transform.position, Quaternion.identity);
+        //Instantiate(addition, transform.position, Quaternion.identity);
 
         //Instantiate(division, transform.position, Quaternion.identity);
 
