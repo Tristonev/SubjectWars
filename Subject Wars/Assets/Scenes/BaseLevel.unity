@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitObject: {fileID: 5042051385086181049, guid: fa739f83d1ad39042b8ce2bfe3aa8925, type: 3}
+  queueCount: {fileID: 0}
 --- !u!114 &32611946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,6 +1007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitObject: {fileID: 5042051385086181049, guid: b53955e976987fd4dbb6d050a5f4f15b, type: 3}
+  queueCount: {fileID: 0}
 --- !u!1 &813901736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Units to be Spawned: 0'
+  m_text: Use 'A' and 'D' to move camera
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1812,6 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitObject: {fileID: 5042051385086181049, guid: 6a46859dff45b784ab9a9ed35809ad7f, type: 3}
+  queueCount: {fileID: 0}
 --- !u!114 &1318854865
 MonoBehaviour:
   m_ObjectHideFlags: 0
