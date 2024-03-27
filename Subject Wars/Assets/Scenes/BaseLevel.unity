@@ -845,6 +845,7 @@ MonoBehaviour:
   addition: {fileID: 0}
   division: {fileID: 0}
   pi: {fileID: 0}
+  spawnTimer: 4
 --- !u!4 &493304090
 Transform:
   m_ObjectHideFlags: 0
@@ -1662,6 +1663,7 @@ MonoBehaviour:
   addition: {fileID: 5042051385086181049, guid: 9596084a665c1844fae5b02454847194, type: 3}
   division: {fileID: 5042051385086181049, guid: 12eb667f7704af041a436747bc5b6dfc, type: 3}
   pi: {fileID: 5042051385086181049, guid: 41eb7fe7a413a724baedaed46182b905, type: 3}
+  spawnTimer: 1
 --- !u!4 &1278350281
 Transform:
   m_ObjectHideFlags: 0

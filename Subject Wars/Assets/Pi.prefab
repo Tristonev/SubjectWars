@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6109566280322294692}
   m_Layer: 0
   m_Name: Pi
-  m_TagString: Untagged
+  m_TagString: Math
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
