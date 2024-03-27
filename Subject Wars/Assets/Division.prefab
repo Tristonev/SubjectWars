@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 372566571674577886}
   - component: {fileID: 5396198941965460041}
   - component: {fileID: -7567060359187914384}
+  - component: {fileID: 5755770775664857612}
+  - component: {fileID: -7781693298946380593}
   m_Layer: 0
   m_Name: Division
   m_TagString: Math
@@ -171,3 +173,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1dff95e2cc1e244a648766a0738bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  KBCounter: 0
+  KBTotalTime: 0
+--- !u!114 &5755770775664857612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042051385086181049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b49a84dbe8538c44b5b7e09c65a29a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 6
+  currentHealth: 0
+--- !u!114 &-7781693298946380593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042051385086181049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad90339464b4fef42a7bdf3ed32934ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAmount: 3
