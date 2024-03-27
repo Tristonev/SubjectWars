@@ -9,7 +9,8 @@ public class SpawnerScript : MonoBehaviour
     public GameObject division;
     public GameObject pi;
 
-    private float spawnTimer = 4f;
+    public float spawnTimer;
+    private float spawnTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +30,12 @@ public class SpawnerScript : MonoBehaviour
     void AttemptSpawn()
     {
         //This checks to see if the amount of time in spawnTimer has passed
-        spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0)
+        spawnTime -= Time.deltaTime;
+        if (spawnTime <= 0)
         {
             //Spawns a unit and resets timer
             Instantiate(addition, transform.position, Quaternion.identity);
-            spawnTimer = 4f;
+            spawnTime = spawnTimer;
         }
     }
 

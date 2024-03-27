@@ -4,26 +4,40 @@ using UnityEngine;
 
 public class EnemyMovementScript : MonoBehaviour
 {
+    public float speed = 5;
+    public float KBCounter;
+    public float KBTotalTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float speed = 5;
-        if (transform.position.x > -8)
+        if (KBCounter <= 0)
         {
-            transform.Translate(transform.right * -speed * Time.deltaTime);
+            if (transform.position.x > -8)
+            {
+                transform.Translate(transform.right * -speed * Time.deltaTime);
+            }
         }
+        else
+        {
+            transform.Translate(transform.right * speed * Time.deltaTime);
+        }
+
+        KBCounter -= Time.deltaTime;
+
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Non-Trigger Colliders existing collision");
-
+        //Destroy(gameObject);
+        KBCounter = 0.25f;
     }
 
     void OnTriggerEnter2D(Collider2D col)
