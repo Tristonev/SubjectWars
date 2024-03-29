@@ -41,7 +41,6 @@ public class UnitMovementScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Trigger Colliders existing collision");
-        Destroy(gameObject);
 
     }
 

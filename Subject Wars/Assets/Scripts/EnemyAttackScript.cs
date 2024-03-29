@@ -25,4 +25,13 @@ public class EnemyAttackScript : MonoBehaviour
             collision.gameObject.GetComponent<UnitHealthScript>().TakeDamage(attackAmount);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "English")
+        {
+            col.gameObject.GetComponent<TowerHandler>().TakeDamage(attackAmount);
+        }
+
+    }
 }
