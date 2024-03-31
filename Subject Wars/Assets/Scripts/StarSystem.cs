@@ -16,24 +16,26 @@ public class StarSystem : MonoBehaviour
         UpdateUI();
     }
 
+    void Start()
+    {
+        AddStars();
+    }
+
     //gain currency
     public void gain(int val)
     {
-        currency += val;
-        UpdateUI();
+        if(currency < defaultCurrency)
+        {
+            currency += val;
+            UpdateUI();
+        }
     }
 
     //use currency
-    public bool use(int val) 
+    public void use(int val) 
     {
-        if(enoughCurrency(val))
-        {
-            currency -= val;
-            UpdateUI();
-            return true;
-        }
-        else
-            return false;
+        currency -= val;
+        UpdateUI();
     }
 
     //check for enough currency
@@ -55,17 +57,55 @@ public class StarSystem : MonoBehaviour
         StarTextNumber.text = currency.ToString();
     }
 
+    public void AddStars()
+    {
+        StartCoroutine(AddStarRoutine());
+        IEnumerator AddStarRoutine()
+        {
+            WaitForSeconds waitTime = new WaitForSeconds(1f);
+            while(true)
+            {
+                gain(1);
+                UpdateUI();
+                yield return waitTime;
+            }
+        }
+    }
     public void useUnitOne()
     {
-        use(2);
+        if(enoughCurrency(2) == false)
+        {
+            //TO DO: show text of not enough currency
+            return;
+        }
+        else
+        {
+            use(2);
+        }
     }
     public void useUnitTwo()
     {
-        use(4);
+        if(enoughCurrency(4) == false)
+        {
+            //TO DO: show text of not enough currency
+            return;
+        }
+        else
+        {
+            use(4);
+        }
     }
     public void useUnitThree()
     {
-        use(5);
+        if(enoughCurrency(5) == false)
+        {
+            //TO DO: show text of not enough currency
+            return;
+        }
+        else
+        {
+            use(5);
+        }
     }
 
 }

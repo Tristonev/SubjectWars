@@ -1,0 +1,9 @@
+Audio was used from freesound.org. The attribution of sounds used in this game are the following:
+
+- Cinematic Battle Song by TheoJT -- https://freesound.org/s/510953/ -- License: Attribution 4.0
+
+- Epoch of War 4 by RAME - War Victory Fight Music Loop by RokZRooM -- https://freesound.org/s/579295/ -- License: Attribution 4.0
+
+- LandingDamage2.wav by Far_Box_creature -- https://freesound.org/s/469565/ -- License: Attribution 4.0
+
+
