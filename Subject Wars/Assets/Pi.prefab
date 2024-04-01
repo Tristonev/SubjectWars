@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6109566280322294692}
   - component: {fileID: 4948163018189526256}
   - component: {fileID: -8010888076125692120}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pi
   m_TagString: Math
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

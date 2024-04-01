@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1358032446188668289}
   - component: {fileID: 4155687429758258641}
   - component: {fileID: -334363108135494564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Addition
   m_TagString: Math
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
