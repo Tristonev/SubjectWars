@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TowerHandler : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class TowerHandler : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
