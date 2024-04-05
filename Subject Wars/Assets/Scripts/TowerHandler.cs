@@ -33,7 +33,7 @@ public class TowerHandler : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GameOver");
         }
     }
 
