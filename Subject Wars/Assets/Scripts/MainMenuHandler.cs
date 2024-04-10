@@ -24,7 +24,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        Application.Quit(); //Quits the application (closes the game).
     }
 
     public void Store()
