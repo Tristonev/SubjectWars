@@ -19,6 +19,7 @@ public class EnemyMovementScript : MonoBehaviour
     {
         if (KBCounter <= 0)
         {
+            //moves left until map end
             if (transform.position.x > -8)
             {
                 transform.Translate(transform.right * -speed * Time.deltaTime);
@@ -26,6 +27,7 @@ public class EnemyMovementScript : MonoBehaviour
         }
         else
         {
+            //moves backwards for the time remaining in KBCounter
             transform.Translate(transform.right * speed * Time.deltaTime);
         }
 
@@ -33,6 +35,7 @@ public class EnemyMovementScript : MonoBehaviour
 
     }
 
+    //Triggers when the unit collides with another unit
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Non-Trigger Colliders existing collision");

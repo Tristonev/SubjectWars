@@ -12,6 +12,7 @@ public class TowerHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //sets tower to have max health at the start
         currentHealth = maxHealth;
     }
 
@@ -27,6 +28,8 @@ public class TowerHandler : MonoBehaviour
 
     }
 
+    //Takes a damage amount from recieving an attack 
+    //Reduces hp based on attack amount and destroys the tower if it is <= 0
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
