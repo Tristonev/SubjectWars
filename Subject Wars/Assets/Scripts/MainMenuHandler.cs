@@ -27,9 +27,9 @@ public class MainMenuHandler : MonoBehaviour
         Application.Quit(); //Quits the application (closes the game).
     }
 
-    public void Store()
+    public void Login()
     {
-        SceneManager.LoadScene("Store"); //This will launch the store scene, which needs to be worked on still.
+        SceneManager.LoadScene("Login");
     }
 
 }
