@@ -36,8 +36,12 @@ public class UnitAttackScript : MonoBehaviour
         //checks to see if it is an enemy tower
         if (col.gameObject.tag == "Math")
         {
+<<<<<<< Updated upstream
             //finds the enemy tower object and damages it
             col.gameObject.GetComponent<TowerHandler>().TakeDamage(attackAmount);
+=======
+            col.gameObject.GetComponent<TowerHandler>().TakeDamage(attackAmount, "Math");
+>>>>>>> Stashed changes
         }
 
     }

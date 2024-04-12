@@ -16,6 +16,7 @@ public class TowerHandler : MonoBehaviour
     {
         //sets tower to have max health at the start
         currentHealth = maxHealth;
+        Debug.Log(currentHealth);
     }
 
     // Update is called once per frame
@@ -30,9 +31,13 @@ public class TowerHandler : MonoBehaviour
 
     }
 
+<<<<<<< Updated upstream
     //Takes a damage amount from recieving an attack 
     //Reduces hp based on attack amount and destroys the tower if it is <= 0
     public void TakeDamage(int amount)
+=======
+    public void TakeDamage(int amount, string tag)
+>>>>>>> Stashed changes
     {
         currentHealth -= amount;
 
@@ -41,7 +46,17 @@ public class TowerHandler : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene("GameOver");
+            if (tag == "Math") //Win
+            {
+                StateDataController.wins++;
+                Debug.Log(StateDataController.wins);
+                SceneManager.LoadScene("MainMenu");
+            } 
+            else
+            {
+                StateDataController.losses++;
+                SceneManager.LoadScene("GameOver");
+            }
         }
 
     }

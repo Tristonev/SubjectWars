@@ -38,13 +38,13 @@ public class UnitMovementScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Non-Trigger Colliders existing collision");
-        KBCounter = 0.25f;
+        KBCounter = 0.50f;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Trigger Colliders existing collision");
-
+        KBCounter = 0.50f;
     }
 
 }

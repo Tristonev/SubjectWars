@@ -47,6 +47,7 @@ public class EnemyMovementScript : MonoBehaviour
     {
         Debug.Log("Trigger Colliders existing collision");
         //Destroy(gameObject);
+        KBCounter = 0.25f;
 
     }
 }
