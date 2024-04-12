@@ -16,11 +16,13 @@ public class CameraScroll : MonoBehaviour
     {
         float speed = 15;
 
+        //move camera right
         if (Input.GetKey(KeyCode.D) && transform.position.x < 16)
         {
             transform.Translate(transform.right * speed * Time.deltaTime);
         }
 
+        //move camera left
         if (Input.GetKey(KeyCode.A) && transform.position.x > 0)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);

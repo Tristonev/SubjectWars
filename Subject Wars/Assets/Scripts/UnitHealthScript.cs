@@ -19,6 +19,8 @@ public class UnitHealthScript : MonoBehaviour
 
     }
 
+    //Takes a damage amount from recieving an attack 
+    //Reduces hp based on attack amount and kills the unit if it falls below 0
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
