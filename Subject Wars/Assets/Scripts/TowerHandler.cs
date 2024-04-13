@@ -31,13 +31,10 @@ public class TowerHandler : MonoBehaviour
 
     }
 
-<<<<<<< Updated upstream
+
     //Takes a damage amount from recieving an attack 
     //Reduces hp based on attack amount and destroys the tower if it is <= 0
-    public void TakeDamage(int amount)
-=======
     public void TakeDamage(int amount, string tag)
->>>>>>> Stashed changes
     {
         currentHealth -= amount;
 
@@ -51,10 +48,11 @@ public class TowerHandler : MonoBehaviour
                 StateDataController.wins++;
                 Debug.Log(StateDataController.wins);
                 SceneManager.LoadScene("MainMenu");
-            } 
+            }
             else
             {
                 StateDataController.losses++;
+                Debug.Log(StateDataController.wins);
                 SceneManager.LoadScene("GameOver");
             }
         }

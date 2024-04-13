@@ -36,12 +36,8 @@ public class EnemyAttackScript : MonoBehaviour
         //checks to see if it is an enemy tower
         if (col.gameObject.tag == "English")
         {
-<<<<<<< Updated upstream
-            //finds the enemy tower object and damages it
-            col.gameObject.GetComponent<TowerHandler>().TakeDamage(attackAmount);
-=======
+            //finds the enemy tower object and damages i
             col.gameObject.GetComponent<TowerHandler>().TakeDamage(attackAmount, "English");
->>>>>>> Stashed changes
         }
 
     }
