@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitHealthScript : MonoBehaviour
 {
-    public int maxHealth = 3;
-    public int currentHealth;
+    public float maxHealth = 3;
+    public float currentHealth;
+    public Image HealthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,9 @@ public class UnitHealthScript : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+
+        HealthBar.fillAmount = currentHealth / maxHealth; //updates the health bar with the new hp
+
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

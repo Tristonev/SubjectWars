@@ -46,8 +46,10 @@ public class EnemyMovementScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Trigger Colliders existing collision");
-        //Destroy(gameObject);
-        KBCounter = 0.25f;
-
+        //checks to see if it is an enemy tower
+        if (col.gameObject.tag == "English")
+        {
+            KBCounter = 0.50f;
+        }
     }
 }

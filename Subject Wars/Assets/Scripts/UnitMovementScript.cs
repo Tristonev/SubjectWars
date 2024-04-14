@@ -44,7 +44,11 @@ public class UnitMovementScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Trigger Colliders existing collision");
-        KBCounter = 0.50f;
+        //checks to see if it is an enemy tower
+        if (col.gameObject.tag == "Math")
+        {
+            KBCounter = 0.50f;
+        }
     }
 
 }
