@@ -8,6 +8,7 @@ public class DataPersistenceManager : MonoBehaviour
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
 
+    private UserData userData; //get rid of, or make list?
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
 
@@ -38,7 +39,52 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log(obj);
         }
         
-        LoadGame();
+        if (StateDataController.email != "")
+        {
+            Debug.Log("Email set");
+            LoadUserData(StateDataController.email);
+            LoadGame();
+        }
+        //LoadGame(); 
+        //Load userdata then game when user logins or registers and login
+    }
+
+    public void LoadUserData(string email)
+    {
+        this.gameData = dataHandler.LoadUsers();
+        if (this.gameData == null)
+        {
+            Debug.Log("No previous Data found");
+            NewGame();
+            this.userData = null;
+        }
+
+        if (gameData.users != null)
+        {
+            foreach (UserData user in gameData.users)
+            {
+                if (user.email == email)
+                {
+                    this.userData = user;
+                    StateDataController.email = user.email;
+                }
+            }
+        } 
+        else
+        {
+            this.gameData.users = new List<UserData>();
+        }
+
+            //Make new user
+        if (this.userData == null)
+        {
+            NewUser(email);
+        }
+
+        //Debug.Log("Could not load user data from file");
+
+        Debug.Log("Loaded loss count = " + userData.lossCount);
+        Debug.Log("Loaded win count = " + userData.winCount);
     }
 
     public void NewGame()
@@ -47,36 +93,59 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("New Game Created");
     }
 
+    public void NewUser(string email)
+    {
+        this.userData = new UserData(email);
+        this.gameData.users.Add(userData);
+        Debug.Log("New User Created");
+
+    }
+
     public void LoadGame()
     {
-        this.gameData = dataHandler.Load();
-        if (this.gameData == null)
+        //this.userData = dataHandler.Load(); //Take Out?
+        if (this.userData == null)
         {
-            Debug.Log("No previous Data found");
+            Debug.Log("No previous Data found in Load Game");
             NewGame();
         }
 
         foreach (IDataPersistence obj in dataPersistenceObjects)
         {
-            obj.LoadData(gameData);
+            obj.LoadData(userData);
         }
 
-        Debug.Log("Loaded loss count = " + gameData.lossCount);
-        Debug.Log("Loaded win count = " + gameData.winCount);
+        Debug.Log("Loaded loss count = " + userData.lossCount);
+        Debug.Log("Loaded win count = " + userData.winCount);
     }
 
 
     public void SaveGame()
     {
-        foreach (IDataPersistence obj in dataPersistenceObjects)
+        Debug.Log(StateDataController.email);
+        if (StateDataController.email != "")
         {
-            obj.SaveData(ref gameData);
+            foreach (IDataPersistence obj in dataPersistenceObjects)
+            {
+                obj.SaveData(ref userData);
+            }
+
+            Debug.Log("Iterated Properly");
+
+            foreach (UserData user in gameData.users)
+            {
+                if (user.email == StateDataController.email)
+                {
+                    user.winCount = userData.winCount;
+                    user.lossCount = userData.lossCount;
+                }
+            }
+
+            Debug.Log("Saved loss count = " + userData.lossCount);
+            Debug.Log("Saved win count = " + userData.winCount);
+
+            dataHandler.Save(this.gameData);
         }
-
-        Debug.Log("Saved loss count = " + gameData.lossCount);
-        Debug.Log("Saved win count = " + gameData.winCount);
-
-        dataHandler.Save(gameData);
     }
 
     private void OnQuit()

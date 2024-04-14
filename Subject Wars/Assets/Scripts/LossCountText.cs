@@ -15,7 +15,7 @@ public class LossCountText : MonoBehaviour, IDataPersistence
         
     }
 
-    public void LoadData(GameData data)
+    public void LoadData(UserData data)
     {
         this.lossCount = data.lossCount;
 
@@ -31,7 +31,7 @@ public class LossCountText : MonoBehaviour, IDataPersistence
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(ref UserData data)
     {
         data.lossCount = this.lossCount;
     }

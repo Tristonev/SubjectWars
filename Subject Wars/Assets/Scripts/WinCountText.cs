@@ -15,7 +15,7 @@ public class WinCountText : MonoBehaviour, IDataPersistence
         
     }
 
-    public void LoadData(GameData data)
+    public void LoadData(UserData data)
     {
         this.winCount = data.winCount;
         if (StateDataController.wins == -1)
@@ -34,7 +34,7 @@ public class WinCountText : MonoBehaviour, IDataPersistence
         Debug.Log(StateDataController.wins);
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(ref UserData data)
     {
         data.winCount = this.winCount;
     }

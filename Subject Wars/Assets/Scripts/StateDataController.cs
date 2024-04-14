@@ -6,10 +6,6 @@ public class StateDataController : MonoBehaviour
 {
     public static int wins = -1;
     public static int losses = -1;
-    public static int played = -1;
-
-    public void Play()
-    {
-        played = played + 1;
-    }
+    public static string email = "";
+    public static string tempEmail = "";
 }

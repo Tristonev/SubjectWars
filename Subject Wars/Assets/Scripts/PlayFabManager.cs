@@ -33,6 +33,7 @@ public class PlayFabManager : MonoBehaviour
     {
         messageText.text = "Logged in!";
         Debug.Log("Successful login");
+        StateDataController.email = StateDataController.tempEmail;
     }
 
     void OnError(PlayFabError error) //have problems getting this to work correctly
@@ -55,12 +56,14 @@ public class PlayFabManager : MonoBehaviour
             Password = passwordInput.text,
             RequireBothUsernameAndEmail = false
         };
+        StateDataController.tempEmail = emailInput.text;
         PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
     }
 
     void OnRegisterSuccess(RegisterPlayFabUserResult result)
     {
         messageText.text = "Register and logged in!";
+        StateDataController.email = StateDataController.tempEmail;
     }
 
     public void LoginButton()
@@ -70,6 +73,7 @@ public class PlayFabManager : MonoBehaviour
             Email = emailInput.text,
             Password = passwordInput.text
         };
+        StateDataController.tempEmail = emailInput.text;
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
     }
 
