@@ -3135,6 +3135,10 @@ PrefabInstance:
       value: EnemySpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
+      propertyPath: waveTimer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: spawnTimer
       value: 3
       objectReference: {fileID: 0}
