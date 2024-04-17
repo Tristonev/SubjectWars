@@ -10,10 +10,74 @@ public class UnitButtonScript : MonoBehaviour
     public TMP_Text queueCount;
     private float spawnTimer = .5f;
     private int spawnCount = 0;
+
+    public Text StarTextNumber; //currency text UI
+    public Text Feedback;
+    public int defaultCurrency; //default currency value
+    public int currency; //current currency value
+
+    //intialization
+    public void Init()
+    {
+        currency = defaultCurrency;
+        UpdateUI();
+    }
+
+    //update the text ui
+    void UpdateUI()
+    {
+        StarTextNumber.text = currency.ToString();
+    }
+
+    public void gain(int val)
+    {
+        if (currency < defaultCurrency)
+        {
+            currency += val;
+            UpdateUI();
+        }
+    }
+
+
+    //use currency
+    public void use(int val)
+    {
+        currency -= val;
+        UpdateUI();
+    }
+
+    //check for enough currency
+    bool enoughCurrency(int val)
+    {
+        if (val <= currency)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        AddStars();
+    }
 
+    public void AddStars()
+    {
+        StartCoroutine(AddStarRoutine());
+        IEnumerator AddStarRoutine()
+        {
+            WaitForSeconds waitTime = new WaitForSeconds(1f);
+            while (true)
+            {
+                gain(1);
+                UpdateUI();
+                yield return waitTime;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -44,8 +108,72 @@ public class UnitButtonScript : MonoBehaviour
 
     public void ButtonClicked()
     {
-        //adds a unit to the queue
-        spawnCount++;
+        if (enoughCurrency(2) == false)
+        {
+            //TO DO: show text of not enough currency
+            Debug.Log("Not enough stars");
+            return;
+        }
+        else
+        {
+            use(2);
+            //adds a unit to the queue
+            spawnCount++;
+        }
+    }
+
+    public void ButtonOneClicked()
+    {
+        if (enoughCurrency(3) == false)
+        {
+            //TO DO: show text of not enough currency
+            //Debug.Log("Not enough stars");
+            Feedback.text = "Not enough stars for unit one";
+            return;
+        }
+        else
+        {
+            use(3);
+            Feedback.text = "Used 3 stars for unit one";
+            //adds a unit to the queue
+            spawnCount++;
+        }
+    }
+
+    public void ButtonTwoClicked()
+    {
+        if (enoughCurrency(4) == false)
+        {
+            //TO DO: show text of not enough currency
+            //Debug.Log("Not enough stars");
+            Feedback.text = "Not enough stars for unit two";
+            return;
+        }
+        else
+        {
+            use(4);
+            Feedback.text = "Used 4 stars for unit two";
+            //adds a unit to the queue
+            spawnCount++;
+        }
+    }
+
+    public void ButtonThreeClicked()
+    {
+        if (enoughCurrency(6) == false)
+        {
+            //TO DO: show text of not enough currency
+            //Debug.Log("Not enough stars");
+            Feedback.text = "Not enough stars for unit three";
+            return;
+        }
+        else
+        {
+            use(6);
+            Feedback.text = "Used 6 stars for unit three";
+            //adds a unit to the queue
+            spawnCount++;
+        }
     }
 
 }

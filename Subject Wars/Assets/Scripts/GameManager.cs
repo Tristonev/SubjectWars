@@ -10,6 +10,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        GetComponent<StarSystem>().Init();
+        GetComponent<UnitButtonScript>().Init();
     }
 }
