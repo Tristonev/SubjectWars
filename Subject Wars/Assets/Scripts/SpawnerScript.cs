@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class SpawnerScript : MonoBehaviour
@@ -14,11 +16,7 @@ public class SpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Instantiate(addition, transform.position, Quaternion.identity);
 
-        //Instantiate(division, transform.position, Quaternion.identity);
-
-        //Instantiate(pi, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -27,14 +25,30 @@ public class SpawnerScript : MonoBehaviour
         AttemptSpawn();
     }
 
-    void AttemptSpawn()
+    public void AttemptSpawn()
     {
+ 
+
         //This checks to see if the amount of time in spawnTimer has passed
         spawnTime -= Time.deltaTime;
         if (spawnTime <= 0)
         {
+            int unitRoll = Random.Range(1,20);
+
             //Spawns a unit and resets timer
-            Instantiate(addition, transform.position, Quaternion.identity);
+            if (unitRoll <= 10)
+            {
+                Instantiate(addition, transform.position, Quaternion.identity);
+            }
+            else if (unitRoll <= 17)
+            {
+                Instantiate(pi, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(division, transform.position, Quaternion.identity);
+            }
+
             spawnTime = spawnTimer;
         }
     }
