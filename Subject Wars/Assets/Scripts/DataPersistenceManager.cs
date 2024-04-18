@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class DataPersistenceManager : MonoBehaviour
@@ -14,6 +15,10 @@ public class DataPersistenceManager : MonoBehaviour
 
     private FileDataHandler dataHandler;
 
+    private string sceneName;
+    private AdminBrowser admin;
+
+    public GameObject button;
     //singleton class that allows its data to be retrieved publicly 
     public static DataPersistenceManager instance
     {
@@ -32,19 +37,37 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath,fileName);
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+
         foreach (IDataPersistence obj in dataPersistenceObjects)
         {
             Debug.Log(obj);
         }
-        
-        if (StateDataController.email != "")
+
+        if ((sceneName == "MainMenu") && (StateDataController.email == "admin@gmail.com"))
+        {
+            button.SetActive(true);
+        }
+
+        if ((sceneName == "AdminScene") && (StateDataController.email == "admin@gmail.com"))
+        {
+            this.gameData = dataHandler.LoadUsers();
+            IEnumerable<IStatTrack> adminTest = FindObjectsOfType<MonoBehaviour>().OfType<IStatTrack>();
+            DisplayUsers(adminTest);
+        }
+
+        else if (StateDataController.email != "")
         {
             Debug.Log("Email set");
             LoadUserData(StateDataController.email);
             LoadGame();
         }
+
+        
         //LoadGame(); 
         //Load userdata then game when user logins or registers and login
     }
@@ -67,6 +90,7 @@ public class DataPersistenceManager : MonoBehaviour
                 {
                     this.userData = user;
                     StateDataController.email = user.email;
+
                 }
             }
         } 
@@ -147,10 +171,26 @@ public class DataPersistenceManager : MonoBehaviour
             dataHandler.Save(this.gameData);
         }
     }
+   
+    public void DisplayUsers(IEnumerable<IStatTrack> adminTest)
+    {
+        foreach (IStatTrack obj in adminTest)
+        {
+            Debug.Log("In Display Users");
+            Debug.Log(gameData);
+            obj.DisplayUserData(gameData);
+        }
+        
+    }
 
     private void OnQuit()
     {
         SaveGame();
+    }
+
+    public GameData getGameData()
+    {
+        return gameData;
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
