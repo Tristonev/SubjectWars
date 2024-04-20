@@ -48,7 +48,7 @@ public class TowerHandler : MonoBehaviour
             {
                 StateDataController.wins++;
                 Debug.Log(StateDataController.wins);
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("WinScene");
             }
             else
             {
