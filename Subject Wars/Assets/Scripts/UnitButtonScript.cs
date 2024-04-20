@@ -17,7 +17,7 @@ public class UnitButtonScript : MonoBehaviour
     public int currency; //current currency value
 
     //intialization
-    public void Init()
+    public void Init() //Set up the currency value to the deafult currency and called UpdateUI() to show the default currency on screen
     {
         currency = defaultCurrency;
         UpdateUI();
@@ -29,7 +29,7 @@ public class UnitButtonScript : MonoBehaviour
         StarTextNumber.text = currency.ToString();
     }
 
-    public void gain(int val)
+    public void gain(int val) //Method gain adds money, val passed in, to the currency variable if the currency is less than max currency, will also update the text on screen
     {
         if (currency < defaultCurrency)
         {
@@ -40,7 +40,7 @@ public class UnitButtonScript : MonoBehaviour
 
 
     //use currency
-    public void use(int val)
+    public void use(int val) //Method uses money, val passed in, and updates text ui
     {
         currency -= val;
         UpdateUI();
@@ -106,11 +106,10 @@ public class UnitButtonScript : MonoBehaviour
         Instantiate(unitObject, spawnerPos, Quaternion.identity);
     }
 
-    public void ButtonOneClicked()
+    public void ButtonOneClicked() //Method to handle when the unit one button is clicked. Checks for enough currency, uses if there is enough and adds unit to spawn count.
     {
         if (enoughCurrency(3) == false)
         {
-            //TO DO: show text of not enough currency
             //Debug.Log("Not enough stars");
             Feedback.text = "Not enough stars for unit one";
             return;
@@ -124,7 +123,7 @@ public class UnitButtonScript : MonoBehaviour
         }
     }
 
-    public void ButtonTwoClicked()
+    public void ButtonTwoClicked() //Method to handle when the unit two button is clicked. Checks for enough currency, uses if there is enough and adds unit to spawn count.
     {
         if (enoughCurrency(4) == false)
         {
@@ -142,7 +141,7 @@ public class UnitButtonScript : MonoBehaviour
         }
     }
 
-    public void ButtonThreeClicked()
+    public void ButtonThreeClicked() //Method to handle when the unit three button is clicked. Checks for enough currency, uses if there is enough and adds unit to spawn count.
     {
         if (enoughCurrency(6) == false)
         {

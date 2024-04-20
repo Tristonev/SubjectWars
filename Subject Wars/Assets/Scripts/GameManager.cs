@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     void Awake() {  instance = this; }
 
-    void Start()
+    void Start() //Used to initialize the text element from the Unity Editor
     {
         GetComponent<UnitButtonScript>().Init();
     }
