@@ -9,34 +9,34 @@ using UnityEngine.SceneManagement;
 public class PlayFabManager : MonoBehaviour
 {
     [Header("UI")]
-    public Text messageText;
-    public InputField emailInput;
-    public InputField passwordInput;
+    public Text messageText; //text for feedback
+    public InputField emailInput; //email input
+    public InputField passwordInput; //password input
     // Start is called before the first frame update
     void Start()
     {
         Login();
     }
 
-    void Login()
+    void Login() ///Method login will create a login request and send this request to the PlayFab API
     {
         var request = new LoginWithCustomIDRequest { CustomId = SystemInfo.deviceUniqueIdentifier, CreateAccount = true };
         PlayFabClientAPI.LoginWithCustomID(request, OnSuccess, OnError);
     }
 
-    void OnSuccess(LoginResult result)
+    void OnSuccess(LoginResult result) //OnSuccess method to show a successful login on the console
     {
         Debug.Log("Successful login/account create!");
     }
 
-    void OnLoginSuccess(LoginResult result)
+    void OnLoginSuccess(LoginResult result) //OnLoginSuccess method to show a successful login on the console and display successful login text to user
     {
         messageText.text = "Logged in!";
         Debug.Log("Successful login");
         StateDataController.email = StateDataController.tempEmail;
     }
 
-    void OnError(PlayFabError error) //have problems getting this to work correctly
+    void OnError(PlayFabError error) //OnError method needed for PlayFab API calls
     {
         //Debug.Log("Error while logging in/creating account!");
         //Debug.Log(error.GenerateErrorReport());
@@ -44,7 +44,7 @@ public class PlayFabManager : MonoBehaviour
         //Debug.Log(error.GenerateErrorReport());
     }
 
-    public void RegisterButton()
+    public void RegisterButton() //RegisterButton Method checks for required password length. Then creates a request using the inputed data and register the user with PlayFab API
     {
         if (passwordInput.text.Length < 6)
         {
@@ -60,13 +60,13 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
     }
 
-    void OnRegisterSuccess(RegisterPlayFabUserResult result)
+    void OnRegisterSuccess(RegisterPlayFabUserResult result) //Method to display a successful register
     {
         messageText.text = "Register and logged in!";
         StateDataController.email = StateDataController.tempEmail;
     }
 
-    public void LoginButton()
+    public void LoginButton() //LoginButton method to create a login request with user entered data and send the login request to PlayFab API
     {
         var request = new LoginWithEmailAddressRequest
         {
@@ -77,7 +77,7 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
     }
 
-    public void ResetPasswordButton()
+    public void ResetPasswordButton() //ResetPasswordButton method to send a password reset email to user. Currently the PlayFab API account recovery emails do not work.
     {
         var request = new SendAccountRecoveryEmailRequest
         {
@@ -87,7 +87,7 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordReset, OnError);
     }
 
-    void OnPasswordReset(SendAccountRecoveryEmailResult result)
+    void OnPasswordReset(SendAccountRecoveryEmailResult result) //Display text to user that recovery email was sent
     {
         messageText.text = "Password reset mail sent!";
     }
