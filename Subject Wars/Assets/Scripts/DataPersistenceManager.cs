@@ -4,28 +4,44 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
+/* 
+ * DataPersistenceManager is a class that is intended to act as a central system for
+ * the creation, saving, and loading of all game data to one main area. It has 12 methods.
+ */
+
 public class DataPersistenceManager : MonoBehaviour
 {
+    //Holds file name
+    //It is serializable to allow for storing the data.
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
 
-    private UserData userData; //get rid of, or make list?
+    //Stores the currents user data
+    private UserData userData;
+
+    //Stores all game data
     private GameData gameData;
+
+    //List that holds win count and loss count text objects (They implement the IDataPersistence interface)
     private List<IDataPersistence> dataPersistenceObjects;
 
+    //Holds the dataHandler that saves and loads data to the set file
     private FileDataHandler dataHandler;
 
+    //Holds name of current scene
     private string sceneName;
-    private AdminBrowser admin;
 
+    //Holds the admin view button
     public GameObject button;
+
     //singleton class that allows its data to be retrieved publicly 
     public static DataPersistenceManager instance
     {
         get; private set;
     }
 
-    //When program is opened, check to see if 
+    //Awake activates when the program is opened, check to see if there is another DataPersistenceManager in this scene
+    //if there is noth, this is set as the main one
     private void Awake()
     {
         if (instance != null)
@@ -35,6 +51,10 @@ public class DataPersistenceManager : MonoBehaviour
         instance = this;
     }
 
+    //Start activates when the scene is loaded
+    //If admin is logged in on main menu, the admin button is activated
+    //If admin is logged in admin view, the user data is displayed
+    //Otherwise the current users data is loaded
     private void Start()
     {
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
@@ -42,11 +62,6 @@ public class DataPersistenceManager : MonoBehaviour
 
         Scene currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
-
-        foreach (IDataPersistence obj in dataPersistenceObjects)
-        {
-            Debug.Log(obj);
-        }
 
         if ((sceneName == "MainMenu") && (StateDataController.email == "admin@gmail.com"))
         {
@@ -62,16 +77,14 @@ public class DataPersistenceManager : MonoBehaviour
 
         else if (StateDataController.email != "")
         {
-            Debug.Log("Email set");
             LoadUserData(StateDataController.email);
             LoadGame();
         }
 
-        
-        //LoadGame(); 
-        //Load userdata then game when user logins or registers and login
     }
 
+    //LoadUserData loads a given users data from the game data
+    //If one is not found, a new user is created
     public void LoadUserData(string email)
     {
         this.gameData = dataHandler.LoadUsers();
@@ -105,18 +118,17 @@ public class DataPersistenceManager : MonoBehaviour
             NewUser(email);
         }
 
-        //Debug.Log("Could not load user data from file");
-
-        Debug.Log("Loaded loss count = " + userData.lossCount);
-        Debug.Log("Loaded win count = " + userData.winCount);
     }
 
+
+    //NewGame initializes the gameData object
     public void NewGame()
     {
         this.gameData = new GameData();
         Debug.Log("New Game Created");
     }
 
+    //NewUser initializes a new user and adds them to the gameData
     public void NewUser(string email)
     {
         this.userData = new UserData(email);
@@ -125,12 +137,11 @@ public class DataPersistenceManager : MonoBehaviour
 
     }
 
+    //LoadGame loads the current users saved data to the userData object
     public void LoadGame()
     {
-        //this.userData = dataHandler.Load(); //Take Out?
         if (this.userData == null)
         {
-            Debug.Log("No previous Data found in Load Game");
             NewGame();
         }
 
@@ -139,22 +150,18 @@ public class DataPersistenceManager : MonoBehaviour
             obj.LoadData(userData);
         }
 
-        Debug.Log("Loaded loss count = " + userData.lossCount);
-        Debug.Log("Loaded win count = " + userData.winCount);
     }
 
-
+    //SaveGame goes through other local copies of usr data and updates
+    //the main copy in this script. Then the main copy is saved to a file
     public void SaveGame()
     {
-        Debug.Log(StateDataController.email);
         if (StateDataController.email != "")
         {
             foreach (IDataPersistence obj in dataPersistenceObjects)
             {
                 obj.SaveData(ref userData);
             }
-
-            Debug.Log("Iterated Properly");
 
             foreach (UserData user in gameData.users)
             {
@@ -165,41 +172,40 @@ public class DataPersistenceManager : MonoBehaviour
                 }
             }
 
-            Debug.Log("Saved loss count = " + userData.lossCount);
-            Debug.Log("Saved win count = " + userData.winCount);
-
             dataHandler.Save(this.gameData);
         }
     }
    
+    //DisplayUsers calls a method from a separate script that dislpays the user data
     public void DisplayUsers(IEnumerable<IStatTrack> adminTest)
     {
         foreach (IStatTrack obj in adminTest)
         {
-            Debug.Log("In Display Users");
-            Debug.Log(gameData);
             obj.DisplayUserData(gameData);
         }
         
     }
 
+    //OnQuit saves the game when the user quits
     private void OnQuit()
     {
         SaveGame();
     }
 
+    //getGameData is a getter method that allows outside callers to get the gameData
     public GameData getGameData()
     {
         return gameData;
     }
 
+    //setGameData is a setter method that allows outside callers to set the gameData
     public void setGameData(GameData gameData)
     {
         this.gameData = gameData;
         dataHandler.Save(this.gameData);
-        Debug.Log("Set gameData");
     }
 
+    //FindAllDataPersistenceObjects searches for all objects that implement IDataPersistence
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
