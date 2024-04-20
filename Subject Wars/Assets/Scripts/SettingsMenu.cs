@@ -12,7 +12,7 @@ public class SettingsMenu : MonoBehaviour
     [Header("Audio")]
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] Slider masterVolumeSlider;
-
+    [SerializeField] Slider inGameMasterVolumeSlider;
     [SerializeField] Canvas canvas;
 
     [Header("Resolution")]
@@ -27,6 +27,7 @@ public class SettingsMenu : MonoBehaviour
     void Start()
     {
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        inGameMasterVolumeSlider.value = PlayerPrefs.GetFloat("InGameMasterVolume");
         GetResolutionOptions();
         fullscreenStatus = PlayerPrefs.GetInt("fullscreen");
         CheckFullscreen(fullscreenStatus);
@@ -54,6 +55,12 @@ public class SettingsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("MasterVolume", ConvertToDec(masterVolumeSlider.value));
         PlayerPrefs.SetFloat("MasterVolume", masterVolumeSlider.value);
+    }
+
+    public void SetInGameMasterVolume()
+    {
+        audioMixer.SetFloat("InGameMasterVolume", ConvertToDec(inGameMasterVolumeSlider.value));
+        PlayerPrefs.SetFloat("InGameMasterVolume", inGameMasterVolumeSlider.value);
     }
 
     float ConvertToDec(float sliderValue)

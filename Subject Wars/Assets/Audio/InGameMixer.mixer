@@ -29,7 +29,9 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 5d1d7dcb6239c444684d4cf8d10fb57c
+    name: InGameMasterVolume
   m_AudioMixerGroupViews:
   - guids:
     - b074dd8ce80c93b4987ad50c5c7f3c14
@@ -85,6 +87,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     01f71be33b4d10840bb885416cc5ca10: -8.362404
     0af872376105a6f48bfcf8900dfa5e7d: -7.8940816
+    5d1d7dcb6239c444684d4cf8d10fb57c: 0.88
   m_TransitionOverrides: {}
 --- !u!244 &1116335992533614636
 AudioMixerEffectController:
