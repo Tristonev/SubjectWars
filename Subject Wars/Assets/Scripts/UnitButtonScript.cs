@@ -106,22 +106,6 @@ public class UnitButtonScript : MonoBehaviour
         Instantiate(unitObject, spawnerPos, Quaternion.identity);
     }
 
-    public void ButtonClicked()
-    {
-        if (enoughCurrency(2) == false)
-        {
-            //TO DO: show text of not enough currency
-            Debug.Log("Not enough stars");
-            return;
-        }
-        else
-        {
-            use(2);
-            //adds a unit to the queue
-            spawnCount++;
-        }
-    }
-
     public void ButtonOneClicked()
     {
         if (enoughCurrency(3) == false)
