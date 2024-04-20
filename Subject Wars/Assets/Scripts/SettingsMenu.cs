@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using System.Linq;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour
@@ -63,13 +64,12 @@ public class SettingsMenu : MonoBehaviour
     void GetResolutionOptions()
     {
         resDropdown.ClearOptions();
-        resolutions = Screen.resolutions;
+        resolutions = Screen.resolutions.Select(resolution => new Resolution {width = resolution.width, height = resolution.height}).Distinct().ToArray();
         for(int i = 0; i < resolutions.Length; i++)
         {
             TMP_Dropdown.OptionData newOption;
             newOption = new TMP_Dropdown.OptionData(resolutions[i].width.ToString() + "x" + resolutions[i].height.ToString());
             resDropdown.options.Add(newOption);
-            Debug.Log(newOption);
         }
     }
 
