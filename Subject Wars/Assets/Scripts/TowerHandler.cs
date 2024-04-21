@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class TowerHandler : MonoBehaviour
 {
-
+    [SerializeField] ScreenFadeHandler screenFade;
     public float maxHealth;
     public float currentHealth;
     public Image HealthBar;
@@ -48,13 +48,13 @@ public class TowerHandler : MonoBehaviour
             {
                 StateDataController.wins++;
                 Debug.Log(StateDataController.wins);
-                SceneManager.LoadScene("WinScene");
+                screenFade.FadeToColor("WinScene");
             }
             else
             {
                 StateDataController.losses++;
                 Debug.Log(StateDataController.wins);
-                SceneManager.LoadScene("GameOver");
+                screenFade.FadeToColor("GameOver");
             }
         }
 

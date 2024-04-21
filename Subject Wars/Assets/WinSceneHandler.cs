@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class WinSceneHandler : MonoBehaviour
 {
+    [SerializeField] ScreenFadeHandler screenFader;
     public void WinPlayAgain()
     {
-        SceneManager.LoadScene("BaseLevel");
+        screenFader.FadeToColor("BaseLevel");
     }
 
     public void WinQuit()
     {
-        SceneManager.LoadScene("MainMenu");
+        screenFader.FadeToColor("MainMenu");
     }
 }

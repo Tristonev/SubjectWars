@@ -7,6 +7,7 @@ public class BaseLevelPlayerInputHandler : MonoBehaviour
 {
     [SerializeField] Canvas baseLevelPause;
     [SerializeField] Canvas baseLevelSettings;
+    [SerializeField] ScreenFadeHandler screenFade;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -38,7 +39,8 @@ public class BaseLevelPlayerInputHandler : MonoBehaviour
 
     public void BaseQuit()
     {
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+        screenFade.FadeToColor("MainMenu");
     }
 
 }

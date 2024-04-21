@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    [SerializeField] ScreenFadeHandler screenFader;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,11 +20,11 @@ public class GameOverManager : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("BaseLevel");
+        screenFader.FadeToColor("BaseLevel");
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        screenFader.FadeToColor("MainMenu");
     }
 }
