@@ -3138,7 +3138,7 @@ GameObject:
   - component: {fileID: 1522356167}
   - component: {fileID: 1522356166}
   - component: {fileID: 1522356165}
-  m_Layer: 1
+  m_Layer: 5
   m_Name: ScreenFadeCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3676,11 +3676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595138921141952998, guid: c7ddd3ca37d7a064fae7d3ff62cc30e3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 3439.95
       objectReference: {fileID: 0}
     - target: {fileID: 4595138921141952998, guid: c7ddd3ca37d7a064fae7d3ff62cc30e3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 450
+      value: 1101.27
       objectReference: {fileID: 0}
     - target: {fileID: 4595138921141952998, guid: c7ddd3ca37d7a064fae7d3ff62cc30e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3712,11 +3712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595138921141952998, guid: c7ddd3ca37d7a064fae7d3ff62cc30e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000091553
+      value: 224.11
       objectReference: {fileID: 0}
     - target: {fileID: 4595138921141952998, guid: c7ddd3ca37d7a064fae7d3ff62cc30e3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000015259
+      value: -13.47
       objectReference: {fileID: 0}
     - target: {fileID: 4595138921141952998, guid: c7ddd3ca37d7a064fae7d3ff62cc30e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3736,7 +3736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8040823963366004312, guid: c7ddd3ca37d7a064fae7d3ff62cc30e3, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
