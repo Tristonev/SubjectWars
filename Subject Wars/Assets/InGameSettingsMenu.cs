@@ -8,7 +8,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class SettingsMenu : MonoBehaviour
+public class InGameSettingsMenu : MonoBehaviour
 {
     [Header("Audio")]
     [SerializeField] AudioMixer audioMixer;
@@ -27,12 +27,12 @@ public class SettingsMenu : MonoBehaviour
 
     void Start()
     {
-        masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-        GetResolutionOptions();
+        masterVolumeSlider.value = PlayerPrefs.GetFloat("InGameMasterVolume");
+        InGameGetResolutionOptions();
         fullscreenStatus = PlayerPrefs.GetInt("fullscreen");
-        CheckFullscreen(fullscreenStatus);
+        InGameCheckFullscreen(fullscreenStatus);
         resDropdown.value = PlayerPrefs.GetInt("resolution");
-        SetResolution();
+        InGameSetResolution();
     }
 
     // Update is called once per frame
@@ -41,27 +41,27 @@ public class SettingsMenu : MonoBehaviour
         
     }
 
-    public void OpenSettings()
+    public void InGameOpenSettings()
     {
         canvas.enabled = true;
     }
 
-    public void CloseSettings()
+    public void InGameCloseSettings()
     {
         canvas.enabled = false;
     }
 
-    public void SetMasterVolume()
+    public void InGameSetMasterVolume()
     {
-        audioMixer.SetFloat("MasterVolume", ConvertToDec(masterVolumeSlider.value));
-        PlayerPrefs.SetFloat("MasterVolume", masterVolumeSlider.value);
+        audioMixer.SetFloat("InGameMasterVolume", InGameConvertToDec(masterVolumeSlider.value));
+        PlayerPrefs.SetFloat("InGameMasterVolume", masterVolumeSlider.value);
     }
-    float ConvertToDec(float sliderValue)
+    float InGameConvertToDec(float sliderValue)
     {
         return Mathf.Log10(Mathf.Max(sliderValue, 0.0001f)) * 20;
     }
 
-    void GetResolutionOptions()
+    void InGameGetResolutionOptions()
     {
         resDropdown.ClearOptions();
         resolutions = Screen.resolutions.Select(resolution => new Resolution {width = resolution.width, height = resolution.height}).Distinct().ToArray();
@@ -73,14 +73,14 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    public void SetResolution()
+    public void InGameSetResolution()
     {
         Screen.SetResolution(resolutions[resDropdown.value].width, resolutions[resDropdown.value].height, fullscreenToggle.isOn);
-        PlayerPrefs.SetInt("fullscreen", ConvertToInt(fullscreenToggle.isOn));
+        PlayerPrefs.SetInt("fullscreen", InGameConvertToInt(fullscreenToggle.isOn));
         PlayerPrefs.SetInt("resolution", resDropdown.value);
     }
 
-    public void CheckFullscreen(int fullscreenStatus)
+    public void InGameCheckFullscreen(int fullscreenStatus)
     {
         if(fullscreenStatus == 0)
         {
@@ -92,7 +92,7 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    int ConvertToInt(bool toggle)
+    int InGameConvertToInt(bool toggle)
     {
         if(toggle == false)
         {

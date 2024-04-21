@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;  //imported unity engine scene manager for ch
 
 public class MainMenuHandler : MonoBehaviour
 {
+    [SerializeField] ScreenFadeHandler screenFade;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("BaseLevel"); //The scene name is currently "SampleScene" since we have not worked on the level chooser yet. When the level choosing menu is done, SampleScene will be replaced by it.
+        screenFade.FadeToColor("BaseLevel"); //The scene name is currently "SampleScene" since we have not worked on the level chooser yet. When the level choosing menu is done, SampleScene will be replaced by it.
     }
 
     public void Quit()
@@ -29,12 +30,12 @@ public class MainMenuHandler : MonoBehaviour
 
     public void Login()
     {
-        SceneManager.LoadScene("Login");
+        screenFade.FadeToColor("Login");
     }
 
     public void Admin()
     {
-        SceneManager.LoadScene("AdminScene");
+        screenFade.FadeToColor("AdminScene");
     }
 
 }
