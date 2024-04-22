@@ -4874,12 +4874,20 @@ PrefabInstance:
       value: EnemySpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
+      propertyPath: pi
+      value: 
+      objectReference: {fileID: 5042051385086181049, guid: 41eb7fe7a413a724baedaed46182b905, type: 3}
+    - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
+      propertyPath: addition
+      value: 
+      objectReference: {fileID: 5042051385086181049, guid: 9596084a665c1844fae5b02454847194, type: 3}
+    - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: waveTimer
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: spawnTimer
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8903107309400993818, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: m_LocalPosition.x

@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad90339464b4fef42a7bdf3ed32934ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAmount: 20
+  attackAmount: 25
   attackSpeed: 1
 --- !u!114 &-8010888076125692120
 MonoBehaviour:
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b49a84dbe8538c44b5b7e09c65a29a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 70
   currentHealth: 0
   HealthBar: {fileID: 3064582831426714596}
 --- !u!1 &9159529496919373949
