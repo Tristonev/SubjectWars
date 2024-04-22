@@ -98,8 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18133c4ae923ef044bf985af86f20b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  screenFade: {fileID: 0}
+  maxHealth: 500
   currentHealth: 0
+  HealthBar: {fileID: 0}
 --- !u!61 &3518588515239260265
 BoxCollider2D:
   m_ObjectHideFlags: 0

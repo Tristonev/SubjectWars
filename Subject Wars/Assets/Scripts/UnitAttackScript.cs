@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class UnitAttackScript : MonoBehaviour
 {
-    public int attackAmount = 1;
+    public int attackAmount;
+
+    public float attackSpeed;
+    private float attackTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -15,17 +18,18 @@ public class UnitAttackScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        attackTimer -= Time.deltaTime;
     }
 
     //Triggers when the unit collides with another unit
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //checks to see if it is an enemy unit
-        if (collision.collider.gameObject.tag == "Math")
+        if (collision.collider.gameObject.tag == "Math" && attackTimer <= 0)
         {
             //finds the enemy unit object and damages it
             collision.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(attackAmount);
+            attackTimer = attackSpeed;
         }
     }
 
@@ -34,10 +38,11 @@ public class UnitAttackScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         //checks to see if it is an enemy tower
-        if (col.gameObject.tag == "Math")
+        if (col.gameObject.tag == "Math" && attackTimer <= 0)
         {
             //finds the enemy tower object and damages it
             col.gameObject.GetComponent<TowerHandler>().TakeDamage(attackAmount, "Math");
+            attackTimer = attackSpeed;
         }
 
     }

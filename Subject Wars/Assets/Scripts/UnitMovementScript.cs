@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitMovementScript : MonoBehaviour
 {
-    public float speed = 5;
+    public float speed;
     public float KBCounter;
     public float KBTotalTime;
 
@@ -38,7 +38,10 @@ public class UnitMovementScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Non-Trigger Colliders existing collision");
-        KBCounter = 0.50f;
+        if (col.gameObject.tag == "Math")
+        {
+            KBCounter = KBTotalTime;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -47,7 +50,7 @@ public class UnitMovementScript : MonoBehaviour
         //checks to see if it is an enemy tower
         if (col.gameObject.tag == "Math")
         {
-            KBCounter = 0.50f;
+            KBCounter = KBTotalTime;
         }
     }
 

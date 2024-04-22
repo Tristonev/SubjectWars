@@ -382,9 +382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9881d9c6d6f168649af5380c8165d156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   KBCounter: 0
-  KBTotalTime: 0
+  KBTotalTime: 0.5
 --- !u!61 &5396198941965460041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -442,7 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dc9dc7846c72548a9f05e8dbfd8e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAmount: 1
+  attackAmount: 10
+  attackSpeed: 1
 --- !u!114 &2622781780226855063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f3c62415f3c5a45aef547ea02095eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 60
   currentHealth: 0
   HealthBar: {fileID: 2314702336254114708}

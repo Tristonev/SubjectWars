@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ed6d3de294070459b2658e3b4c3dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitObject: {fileID: 5042051385086181049, guid: fa739f83d1ad39042b8ce2bfe3aa8925, type: 3}
+  unitObject: {fileID: 5042051385086181049, guid: 6a46859dff45b784ab9a9ed35809ad7f, type: 3}
   queueCount: {fileID: 0}
   StarTextNumber: {fileID: 1642140573}
   Feedback: {fileID: 2010200889}
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Verb Unit
+  m_text: The Unit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Unit
+  m_text: Verb Unit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2526,7 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ed6d3de294070459b2658e3b4c3dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitObject: {fileID: 5042051385086181049, guid: 6a46859dff45b784ab9a9ed35809ad7f, type: 3}
+  unitObject: {fileID: 5042051385086181049, guid: fa739f83d1ad39042b8ce2bfe3aa8925, type: 3}
   queueCount: {fileID: 0}
   StarTextNumber: {fileID: 1857960998}
   Feedback: {fileID: 2010200889}
@@ -4417,6 +4417,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1832442139}
     - target: {fileID: 3592986970102458673, guid: 47f54ce98d913054f88ce5ed468cf320, type: 3}
+      propertyPath: maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592986970102458673, guid: 47f54ce98d913054f88ce5ed468cf320, type: 3}
       propertyPath: screenFade
       value: 
       objectReference: {fileID: 438721261}
@@ -4589,6 +4593,10 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 1103035045}
+    - target: {fileID: 5919624624291196367, guid: 9d8040d0f3d6d8244a8fcd02d002c5f5, type: 3}
+      propertyPath: maxHealth
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 5919624624291196367, guid: 9d8040d0f3d6d8244a8fcd02d002c5f5, type: 3}
       propertyPath: screenFade
       value: 
@@ -4871,7 +4879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: spawnTimer
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8903107309400993818, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: m_LocalPosition.x
