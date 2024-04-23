@@ -4887,7 +4887,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: spawnTimer
-      value: 5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
+      propertyPath: largeWaveTime
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
+      propertyPath: smallWaveTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026509918927867706, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
+      propertyPath: mediumWaveTime
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8903107309400993818, guid: a52e42e1dbdb7fb48bd2011491933eac, type: 3}
       propertyPath: m_LocalPosition.x

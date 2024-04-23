@@ -17,16 +17,23 @@ public class SpawnerScript : MonoBehaviour
     private float spawnTime;
 
     //wave controls
-    public float waveTimer;
-    private float waveTime;
-    private float waveSpawnDelay = .5f;
     private bool waveActive = false;
+    private bool smallWaveDone = false;
+    private bool mediumWaveDone = false;
     private int curUnitNum = 1;
+    private float waveTimer;
+    private float waveSpawnDelay = .5f;
+
+    //wave start times
+    public float smallWaveTime;
+    public float mediumWaveTime;
+    public float largeWaveTime;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        waveTime = waveTimer;
+        waveTimer = smallWaveTime;
     }
 
     // Update is called once per frame
@@ -40,20 +47,30 @@ public class SpawnerScript : MonoBehaviour
         //This checks to see if the amount of time in spawnTimer has passed
         spawnTime -= Time.deltaTime;
 
-        waveTime -= Time.deltaTime;
+        waveTimer -= Time.deltaTime;
         waveSpawnDelay -= Time.deltaTime;
 
-        if(waveTime <= 0)
+        if(waveTimer <= 0)
         {
-            //Starts wave and resets wave timer
+            //Starts wave
             waveActive = true;
-            waveTime = waveTimer;
         }
 
         if (waveSpawnDelay <= 0 && waveActive)
         {
             //Spawns next unit in wave and resets the spawn delay
-            SpawnWave();
+            if (!smallWaveDone)
+            {
+                SpawnSmallWave();
+            }
+            else if (!mediumWaveDone)
+            {
+                SpawnMediumWave();
+            }
+            else
+            {
+                SpawnLargeWave();
+            }
             waveSpawnDelay = .5f;
         }
 
@@ -70,11 +87,11 @@ public class SpawnerScript : MonoBehaviour
         int unitRoll = Random.Range(1, 20);
 
         //Spawns a unit based on the random number
-        if (unitRoll <= 10)
+        if (unitRoll <= 10 || !smallWaveDone)
         {
             Instantiate(addition, transform.position, Quaternion.identity);
         }
-        else if (unitRoll <= 17)
+        else if (unitRoll <= 17 || !mediumWaveDone)
         {
             Instantiate(pi, transform.position, Quaternion.identity);
         }
@@ -87,17 +104,63 @@ public class SpawnerScript : MonoBehaviour
         spawnTime = spawnTimer;
     }
 
+    private void SpawnSmallWave()
+    {
+        if (curUnitNum <= 3)
+        {
+            Instantiate(addition, transform.position, Quaternion.identity);
+            curUnitNum++;
+        }
+        else
+        {
+            Instantiate(pi, transform.position, Quaternion.identity);
+            //resets wave controls
+            waveActive = false;
+            curUnitNum = 1;
+            smallWaveDone = true;
+            //sets next wave timer and starts random spawns again
+            waveTimer = mediumWaveTime - smallWaveTime;
+            spawnTime = spawnTimer;
+        }
+    }
 
-    private void SpawnWave()
+    private void SpawnMediumWave()
+    {
+        if (curUnitNum <= 2)
+        {
+            Instantiate(addition, transform.position, Quaternion.identity);
+            curUnitNum++;
+        }
+        else if (curUnitNum <= 4)
+        {
+            Instantiate(pi, transform.position, Quaternion.identity);
+            curUnitNum++;
+        }
+        else
+        {
+            Instantiate(division, transform.position, Quaternion.identity);
+            //resets wave controls
+            waveActive = false;
+            curUnitNum = 1;
+            mediumWaveDone = true;
+            //sets next wave timer and starts random spawns again
+            waveTimer = largeWaveTime - mediumWaveTime;
+            spawnTime = spawnTimer;
+        }
+    }
+
+    private void SpawnLargeWave()
     {
         //Spawns the next unit in the wave
         //current pattern is : (add, add, pi) * 3 and then a division
         if (curUnitNum % 10 == 0)
         {
             Instantiate(division, transform.position, Quaternion.identity);
+            //resets wave controls and starts random spawns again
             waveActive = false;
-            curUnitNum = 0;
+            curUnitNum = 1;
             spawnTime = spawnTimer;
+            waveTimer = largeWaveTime;
         }
         else if (curUnitNum % 3 == 0)
         {
