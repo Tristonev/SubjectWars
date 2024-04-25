@@ -14,9 +14,13 @@ IMPORTANT: Before you read any further, please download the latest game version 
 5.) To play, click on the play button. This will transport you to the base level.
 
 6.) There also exists a How-To-Play button within the main menu, however if you do not understand it, here is an in-depth explanation on how to play:
+
     - There are a couple UI elements to notice:
+    
         - The 'unit' buttons will spawn units that fight for you. These units will cost the 'gold star' currency
+        
         - The 'gold star' currency UI element gives you information on how much currency you have to spawn the units needed
+        
         - The 'gold star' currency recharges over time, and there is a 'gold star' currency tied to each unit in the game
         
 7.) The goal is to destroy the enemy tower on the other side using the friendly units that you spawned
