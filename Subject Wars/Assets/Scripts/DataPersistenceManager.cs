@@ -162,16 +162,16 @@ public class DataPersistenceManager : MonoBehaviour
             {
                 obj.SaveData(ref userData);
             }
-
-            foreach (UserData user in gameData.users)
-            {
-                if (user.email == StateDataController.email)
+            if (sceneName != "AdminScene") {
+                foreach (UserData user in gameData.users)
                 {
-                    user.winCount = userData.winCount;
-                    user.lossCount = userData.lossCount;
+                    if (user.email == StateDataController.email)
+                    {
+                        user.winCount = userData.winCount;
+                        user.lossCount = userData.lossCount;
+                    }
                 }
             }
-
             dataHandler.Save(this.gameData);
         }
     }
