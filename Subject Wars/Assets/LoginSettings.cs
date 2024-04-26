@@ -35,11 +35,6 @@ public class LoginSettings : MonoBehaviour
         LoginSetResolution();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void LoginOpenSettings()
     {

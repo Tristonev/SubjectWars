@@ -17,11 +17,6 @@ public class ScreenFadeHandler : MonoBehaviour
         FadeToClear();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void FadeToClear()
     {

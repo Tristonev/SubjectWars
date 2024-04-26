@@ -20,11 +20,6 @@ public class TowerHandler : MonoBehaviour
         Debug.Log(currentHealth);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter2D(Collision2D col)
     {

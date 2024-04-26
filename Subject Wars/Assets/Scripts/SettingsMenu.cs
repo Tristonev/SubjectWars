@@ -35,11 +35,6 @@ public class SettingsMenu : MonoBehaviour
         SetResolution();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OpenSettings()
     {

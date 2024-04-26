@@ -9,11 +9,6 @@ public class UnitAttackScript : MonoBehaviour
     public float attackSpeed;
     private float attackTimer = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

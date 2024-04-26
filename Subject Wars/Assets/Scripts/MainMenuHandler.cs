@@ -6,17 +6,6 @@ using UnityEngine.SceneManagement;  //imported unity engine scene manager for ch
 public class MainMenuHandler : MonoBehaviour
 {
     [SerializeField] ScreenFadeHandler screenFade;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Play()
     {
