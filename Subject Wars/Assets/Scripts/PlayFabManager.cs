@@ -38,10 +38,7 @@ public class PlayFabManager : MonoBehaviour
 
     void OnError(PlayFabError error) //OnError method needed for PlayFab API calls
     {
-        //Debug.Log("Error while logging in/creating account!");
-        //Debug.Log(error.GenerateErrorReport());
-        //messageText.text = "Error!";
-        //Debug.Log(error.GenerateErrorReport());
+        //This function is a work in progress. The function must exist for the API call. 
     }
 
     public void RegisterButton() //RegisterButton Method checks for required password length. Then creates a request using the inputed data and register the user with PlayFab API

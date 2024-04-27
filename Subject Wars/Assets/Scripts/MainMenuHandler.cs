@@ -7,9 +7,10 @@ public class MainMenuHandler : MonoBehaviour
 {
     [SerializeField] ScreenFadeHandler screenFade;
 
+    //ScreenFader will fade to black and load up the base level scene
     public void Play()
     {
-        screenFade.FadeToColor("BaseLevel"); //The scene name is currently "SampleScene" since we have not worked on the level chooser yet. When the level choosing menu is done, SampleScene will be replaced by it.
+        screenFade.FadeToColor("BaseLevel");
     }
 
     public void Quit()
@@ -17,11 +18,13 @@ public class MainMenuHandler : MonoBehaviour
         Application.Quit(); //Quits the application (closes the game).
     }
 
+    //ScreenFader will fade to black and load up the login scene
     public void Login()
     {
         screenFade.FadeToColor("Login");
     }
 
+    //ScreenFader will fade to black and load up the login scene
     public void Admin()
     {
         screenFade.FadeToColor("AdminScene");

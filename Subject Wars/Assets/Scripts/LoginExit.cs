@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 public class LoginExit : MonoBehaviour
 {
     [SerializeField] ScreenFadeHandler screenFader;
-    //This function will take you back to the main menu
+    
+    //ScreenFader will fade to black and load up the main menu scene
     public void Exit()
     {
         screenFader.FadeToColor("MainMenu");

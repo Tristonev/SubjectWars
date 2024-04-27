@@ -75,7 +75,6 @@ public class StarSystem : MonoBehaviour
     {
         if(enoughCurrency(2) == false)
         {
-            //TO DO: show text of not enough currency
             return;
         }
         else
@@ -87,7 +86,6 @@ public class StarSystem : MonoBehaviour
     {
         if(enoughCurrency(4) == false)
         {
-            //TO DO: show text of not enough currency
             return;
         }
         else
@@ -99,7 +97,6 @@ public class StarSystem : MonoBehaviour
     {
         if(enoughCurrency(5) == false)
         {
-            //TO DO: show text of not enough currency
             return;
         }
         else

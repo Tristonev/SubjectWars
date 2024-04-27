@@ -99,7 +99,7 @@ public class UnitButtonScript : MonoBehaviour
         }
     }
 
-
+    /* The spawner spawns a unit */
     public void SpawnUnit()
     {
         var spawnerPos = GameObject.Find("Spawner").transform.position;
@@ -110,7 +110,6 @@ public class UnitButtonScript : MonoBehaviour
     {
         if (enoughCurrency(3) == false)
         {
-            //Debug.Log("Not enough stars");
             Feedback.text = "Not enough stars for unit one";
             return;
         }
@@ -127,8 +126,6 @@ public class UnitButtonScript : MonoBehaviour
     {
         if (enoughCurrency(4) == false)
         {
-            //TO DO: show text of not enough currency
-            //Debug.Log("Not enough stars");
             Feedback.text = "Not enough stars for unit two";
             return;
         }
@@ -145,8 +142,6 @@ public class UnitButtonScript : MonoBehaviour
     {
         if (enoughCurrency(6) == false)
         {
-            //TO DO: show text of not enough currency
-            //Debug.Log("Not enough stars");
             Feedback.text = "Not enough stars for unit three";
             return;
         }

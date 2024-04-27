@@ -19,6 +19,7 @@ public class ChangeInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Tab and shift navigation of the login page
         if (Input.GetKeyDown(KeyCode.Tab) && Input.GetKey(KeyCode.LeftShift))
         {
             Selectable previous = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp();
@@ -35,6 +36,7 @@ public class ChangeInput : MonoBehaviour
                 next.Select();
             }
         }
+        //enter will login the player
         else if(Input.GetKeyDown(KeyCode.Return))
         {
             submitButton.onClick.Invoke();
