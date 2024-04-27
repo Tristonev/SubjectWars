@@ -24,3 +24,7 @@ IMPORTANT: Before you read any further, please download the latest game version 
         - The 'gold star' currency recharges over time, and there is a 'gold star' currency tied to each unit in the game
         
 7.) The goal is to destroy the enemy tower on the other side using the friendly units that you spawned
+
+For admin login please use the following credentials.
+Email: admin@gmail.com
+Password: Agile4Life
